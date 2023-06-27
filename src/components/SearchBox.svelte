@@ -1,31 +1,6 @@
 <script>
-	import { onMount } from 'svelte';
-	import SearchProducts from '../stores/searchProducts';
 	export let showSearch;
-	let searchInput = '';
-
-	onMount(() => {
-		SearchProducts.set([]);
-	});
-
-	const fetchSearchProducts = async (query = '') => {
-		const response = await fetch(
-			`https://api.searchspring.net/api/search/search.json?siteId=scmq7n&resultsFormat=native&page=1${query}`
-		);
-		const data = await response.json();
-
-		if (response.ok) {
-			SearchProducts.set([data]);
-		}
-	};
-
-	const handleSearchSubmit = (e) => {
-		// check if search input is empty
-		if (searchInput === '') {
-			return;
-		}
-		fetchSearchProducts(`&q=${searchInput}`);
-	};
+	export let searchInput;
 </script>
 
 <div
@@ -52,10 +27,7 @@
 			id="headlessui-dialog-panel-531"
 			data-headlessui-state="open"
 		>
-			<form
-				on:submit|preventDefault={handleSearchSubmit}
-				class="relative flex items-center justify-between shadow-sm"
-			>
+			<form on:submit|preventDefault class="relative flex items-center justify-between shadow-sm">
 				<input
 					class="block w-full appearance-none bg-transparent py-4 pl-4 pr-12 text-base text-slate-900 outline-none border-0 border-none placeholder:text-slate-600 focus:outline-none sm:text-sm sm:leading-6 focus-visible"
 					placeholder="Find anything..."
@@ -71,6 +43,7 @@
 					style="caret-color: rgb(107, 114, 128);"
 					data-focus-visible-added=""
 					aria-controls="headlessui-combobox-options-533"
+					autofocus
 				/>
 				<button type="submit"
 					><svg
@@ -82,40 +55,6 @@
 					></button
 				>
 			</form>
-			<ul
-				class="max-h-[18.375rem] divide-y divide-slate-200 overflow-y-auto rounded-b-lg border-t border-slate-200 text-sm leading-6"
-				role="listbox"
-				id="headlessui-combobox-options-533"
-				data-headlessui-state="open"
-			>
-				{#if $SearchProducts.length < 1}
-					<p />
-				{:else}
-					{#each $SearchProducts[0].results as product (product.id)}
-						<li
-							class="flex items-center justify-between p-4 cursor-pointer opacity-60 hover:opacity-100"
-							id="headlessui-combobox-option-534"
-							role="option"
-							tabindex="-1"
-							aria-selected="false"
-							data-headlessui-state=""
-						>
-							<img
-								src={product.thumbnailImageUrl}
-								alt={product.name}
-								class="w-[40px] object-cover object-center rounded-md"
-							/>
-							<span
-								class="flex items-center ml-4 text-right whitespace-nowrap font-semibold text-slate-900"
-							>
-								<span class="block truncate max-w-[300px]">{product.name}</span>
-							</span>
-						</li>
-					{:else}
-						<p>There are no workouts</p>
-					{/each}
-				{/if}
-			</ul>
 		</div>
 	</div>
 </div>
