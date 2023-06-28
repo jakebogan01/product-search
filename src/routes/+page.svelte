@@ -90,12 +90,12 @@
 			<div class="hidden sm:block">
 				<p class="text-sm text-gray-700">
 					Showing
-					<span class="font-medium">{apiLogic.currentPage}</span>
-					out of
+					<span class="font-medium">{apiLogic.Products[0]?.pagination?.end}</span>
+					of
 					<span class="font-medium"
-						>{apiLogic.Products[0]?.pagination?.totalPages.toLocaleString()}</span
+						>{apiLogic.Products[0]?.pagination?.totalResults.toLocaleString()}</span
 					>
-					pages
+					results
 				</p>
 			</div>
 			<div class="flex flex-1 justify-between sm:justify-end">
