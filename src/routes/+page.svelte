@@ -22,7 +22,7 @@
 	// I also split the fetch into its own function so we can call it on the next and previous page buttons
 	const fetchProducts = async (query = '') => {
 		const response = await fetch(
-			`https://api.searchspring.net/api/search/search.json?siteId=${env.PUBLIC_SITE_ID}&resultsFormat=native&resultsPerPage=${apiLogic.pageCount}&page=${apiLogic.currentPage}${query}`
+			`https://api.searchspring.net/api/search/search.json?siteId=scmq7n&resultsFormat=native&resultsPerPage=${apiLogic.pageCount}&page=${apiLogic.currentPage}${query}`
 		);
 		const data = await response.json();
 
