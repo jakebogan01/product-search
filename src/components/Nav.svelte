@@ -1,5 +1,5 @@
 <script>
-	export let showSearch;
+	export let showSearch = false;
 	let menuOpen = true;
 </script>
 

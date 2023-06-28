@@ -7,12 +7,12 @@
 		<img
 			src={product?.thumbnailImageUrl || product?.imageUrl}
 			alt={product.name}
-			class="h-full w-full object-cover object-center"
+			class="h-full w-full object-cover object-top"
 		/>
 	</div>
 	<div class="pb-4 pt-10 text-center">
 		<h3 class="text-sm font-medium text-gray-900">
-			<a href="#" class="block truncate">
+			<a href="/{product.id}" class="block truncate">
 				<span aria-hidden="true" class="absolute inset-0" />
 				{product.name}
 			</a>

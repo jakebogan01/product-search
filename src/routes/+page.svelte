@@ -1,11 +1,12 @@
 <script>
-	import { onMount } from 'svelte';
-	import { env } from '$env/dynamic/public';
+	import { onMount, getContext } from 'svelte';
 	import SearchBox from '../components/SearchBox.svelte';
 	import Loader from '../components/Loader.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Product from '../components/Product.svelte';
 	import Footer from '../components/Footer.svelte';
+
+	const allProducts = getContext('Products');
 
 	let showSearch = false;
 	let searchInput = '';
@@ -29,6 +30,7 @@
 
 		if (response.ok) {
 			apiLogic.Products[0] = data;
+			allProducts.set(apiLogic.Products[0].results);
 		} else {
 			console.error(data.error);
 		}
