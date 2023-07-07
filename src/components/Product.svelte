@@ -3,7 +3,7 @@
 </script>
 
 <div class="group relative border-b border-r border-gray-200 p-4 sm:p-6">
-	<div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
+	<div class="w-[267px] h-[400px] overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
 		<img
 			src={product?.thumbnailImageUrl || product?.imageUrl}
 			alt={product.name}

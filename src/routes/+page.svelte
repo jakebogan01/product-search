@@ -59,7 +59,7 @@
 		<div class="px-4 py-16 text-center sm:px-6 lg:px-8">
 			<h1 class="text-4xl font-bold tracking-tight text-gray-900">Most Popular</h1>
 			<p class="mx-auto mt-4 max-w-xl text-base text-gray-500">
-				Lookign for something new to add to your collection? We've got you covered.
+				Looking for something new to add to your collection? We've got you covered.
 			</p>
 		</div>
 
